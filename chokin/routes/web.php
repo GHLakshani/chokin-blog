@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\http\Controllers\AdminController;
 
+use App\http\Controllers\UserController;
+// use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +27,6 @@ Route::get('/',[HomeController::class,'home']);
 Route::get('/admin/login',[AdminController::class,'login']);
 Route::post('/admin/login',[AdminController::class,'submit_login']);
 Route::get('/admin/dashboard',[AdminController::class,'dashboard']);
+Route::get('/admin/user/{id}/delete',[UserController::class,'destroy']);
+Route::resource('admin/user','UserController');
 
