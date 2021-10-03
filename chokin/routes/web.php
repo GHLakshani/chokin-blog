@@ -5,6 +5,7 @@ use App\http\Controllers\HomeController;
 use App\http\Controllers\AdminController;
 use App\http\Controllers\UserController;
 use App\http\Controllers\CategoryController;
+use App\http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::get('/admin/dashboard',[AdminController::class,'dashboard']);
 
 Route::get('/admin/category/{id}/delete',[CategoryController::class,'destroy']);
 Route::resource('admin/category','CategoryController');
+
+Route::get('/admin/post/{id}/delete',[PostController::class,'destroy']);
+Route::resource('admin/post','PostController');
 
 Route::get('/admin/user/{id}/delete',[UserController::class,'destroy']);
 Route::resource('admin/user','UserController');

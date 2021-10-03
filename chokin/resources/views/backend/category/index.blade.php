@@ -51,7 +51,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Category
                             </a>
-                            <a class="nav-link" href="{{url('admin/posts/')}}">
+                            <a class="nav-link" href="{{url('admin/post/')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
                                 Posts
                             </a>
@@ -106,15 +106,15 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        @foreach($data as $use)
+                                        @foreach($data as $cat)
                                         <tr>
-                                            <td>{{$use->id}}</td>
-                                            <td>{{$use->title}}</td>
-                                            <td>{{$use->detail}}</td>
-                                            <td><img src="{{asset('images').'/'.$use->image}}" width="100" /></td>
+                                            <td>{{$cat->id}}</td>
+                                            <td>{{$cat->title}}</td>
+                                            <td>{{$cat->detail}}</td>
+                                            <td><img src="{{asset('images').'/'.$cat->image}}" width="100" /></td>
                                             <td>
-                                                <a class="btn btn-info btn-sm" href="{{url('admin/category/'.$use->id.'/edit')}}">Update</a>
-                                                <a onclick="return confirm('Are you Sure you want to Delete?')" class="btn btn-danger btn-sm" href="{{url('admin/category/'.$use->id.'/delete')}}">Delete</a>
+                                                <a class="btn btn-info btn-sm" href="{{url('admin/category/'.$cat->id.'/edit')}}">Update</a>
+                                                <a onclick="return confirm('Are you Sure you want to Delete?')" class="btn btn-danger btn-sm" href="{{url('admin/category/'.$cat->id.'/delete')}}">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

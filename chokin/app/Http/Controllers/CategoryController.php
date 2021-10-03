@@ -46,7 +46,10 @@ class CategoryController extends Controller
             $reImage=time().".".$image->getClientOriginalExtension();
             $dest=public_path('/images');
             $image->move($dest,$reImage);
-        }       
+        } 
+        else{
+            $reImage='na';
+        }     
 
         $category=new Category;
         $category->title=$request->title;
