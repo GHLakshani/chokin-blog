@@ -47,8 +47,20 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+                            <a class="nav-link" href="{{url('admin/category/')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+                                Category
+                            </a>
                             <a class="nav-link" href="{{url('admin/user/')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-plus-circle"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
+                                Posts
+                            </a>
+                            <a class="nav-link" href="{{url('admin/user/')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-comments"></i></div>
+                                Comments
+                            </a>
+                            <a class="nav-link" href="{{url('admin/user/')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Users
                             </a>
                         </div>

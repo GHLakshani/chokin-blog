@@ -74,51 +74,53 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Users</h1>
+                        <h1 class="mt-4">Category</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="{{url('admin/user')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item"><a href="{{url('admin/category/create')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Add New</li>
                         </ol>
                         
-                        <div class="card mb-4">
+                        <div class="card mb-3">
                             <div class="card-header">
-                                    <i class="fas fa-table me-1"></i>View Accounts                             
-                                    <a href="{{url('admin/user/create')}}" class="float-right btn btn-sm btn-dark">Add Data</a>
+                                    <i class="fas fa-table me-1"></i>Create Category                             
+                                    <a href="{{url('admin/category')}}" class="float-right btn btn-sm btn-dark">View Data</a>
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        @foreach($data as $use)
-                                        <tr>
-                                            <td>{{$use->id}}</td>
-                                            <td>{{$use->name}}</td>
-                                            <td>{{$use->email}}</td>
-                                            <td>
-                                                <a class="btn btn-info btn-sm" href="{{url('admin/user/'.$use->id.'/edit')}}">Update</a>
-                                                <a onclick="return confirm('Are you Sure you want to Delete?')" class="btn btn-danger btn-sm" href="{{url('admin/user/'.$use->id.'/delete')}}">Delete</a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        @if($errors)
+                                            @foreach($errors->all() as $error)
+                                            <p class="text-danger">{{$error}}</p>
+                                            @endforeach
+                                        @endif
+
+                                        @if(Session::has('success'))
+                                        <p class="text-success">{{session('success')}}</p>
+                                        @endif
+                                <div class="table-responsive">
+                                    <form method="post" action="{{url('admin/category')}}" enctype="multipart/form-data">
+                                        @csrf
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <td>Title</td>
+                                                <td><input class="form-control" id="title" name="title" type="text" placeholder="Title" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Details</td>
+                                                <td><input class="form-control" id="detail" name="detail" type="text" placeholder="Details" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td><input class="form-control" id="cat_image" name="cat_image" type="file"  /></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><input type="submit" class="btn btn-primary btn-block" style="width:100%" /></td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                                
                             </div>
                         </div>
+                        
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

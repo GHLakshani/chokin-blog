@@ -51,11 +51,11 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Category
                             </a>
-                            <a class="nav-link" href="{{url('admin/user/')}}">
+                            <a class="nav-link" href="{{url('admin/posts/')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
                                 Posts
                             </a>
-                            <a class="nav-link" href="{{url('admin/user/')}}">
+                            <a class="nav-link" href="{{url('admin/comments/')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-comments"></i></div>
                                 Comments
                             </a>
@@ -74,32 +74,34 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Users</h1>
+                        <h1 class="mt-4">Category</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="{{url('admin/user')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item"><a href="{{url('admin/category')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">View</li>
                         </ol>
                         
                         <div class="card mb-4">
                             <div class="card-header">
-                                    <i class="fas fa-table me-1"></i>View Accounts                             
-                                    <a href="{{url('admin/user/create')}}" class="float-right btn btn-sm btn-dark">Add Data</a>
+                                    <i class="fas fa-table me-1"></i>View Data                             
+                                    <a href="{{url('admin/category/create')}}" class="float-right btn btn-sm btn-dark">Add Data</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
+                                            <th>Title</th>
+                                            <th>Detail</th>
+                                            <th>Image</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
+                                            <th>Title</th>
+                                            <th>Detail</th>
+                                            <th>Image</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -107,11 +109,12 @@
                                         @foreach($data as $use)
                                         <tr>
                                             <td>{{$use->id}}</td>
-                                            <td>{{$use->name}}</td>
-                                            <td>{{$use->email}}</td>
+                                            <td>{{$use->title}}</td>
+                                            <td>{{$use->detail}}</td>
+                                            <td><img src="{{asset('images').'/'.$use->image}}" width="100" /></td>
                                             <td>
-                                                <a class="btn btn-info btn-sm" href="{{url('admin/user/'.$use->id.'/edit')}}">Update</a>
-                                                <a onclick="return confirm('Are you Sure you want to Delete?')" class="btn btn-danger btn-sm" href="{{url('admin/user/'.$use->id.'/delete')}}">Delete</a>
+                                                <a class="btn btn-info btn-sm" href="{{url('admin/category/'.$use->id.'/edit')}}">Update</a>
+                                                <a onclick="return confirm('Are you Sure you want to Delete?')" class="btn btn-danger btn-sm" href="{{url('admin/category/'.$use->id.'/delete')}}">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
