@@ -22,6 +22,8 @@ class AdminController extends Controller
 
         $userCheck=Admin::where(['username'=>$request->username,'password'=>$request->password])->count();
         if($userCheck>0){
+            $adminData=Admin::where(['username'=>$request->username,'password'=>$request->password])->count();
+            session(['adminData'=>$adminData]);
             return redirect('admin/dashboard');
         }
         else{
@@ -32,5 +34,11 @@ class AdminController extends Controller
     //dashboard
     function dashboard(){
         return view('backend.dashboard');
+    }
+
+    //logout
+    function logout(){
+        session()->forget(['adminData']);
+        return redirect('admin/login');
     }
 }
