@@ -1,28 +1,41 @@
 @extends('frontLayout')
 @section('content')
-        <div class="container-fluid px-4">
             <div class="row">
                 <div clas="col-md-8">
-                    <div class="row mb-5">
-                        @if(count($posts)>0)
-                        @foreach($posts as $post)
-                        <div clas="col-md-4">
-                            <div class="card">
-                            <a href="{{url('detail/'.$post->id)}}"><img  src="{{asset('images/thumb/'.$post->thumb_img)}}" class="img-thumbnail" alt="{{$post->title}}" style="width: 200px;height: 200px;"></a>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="{{url('detail/'.$post->id)}}">{{$post->title}}</a></h5>
-                                </div>
-                            </div>
+                    <div class="card">
+                        <h5 class="card-header">{{$detail->title}}</h5>
+                        <img class="card-img-top" src="{{asset('images/full/'.$detail->full_img)}}" alt="{{$detail->title}}">
+                        <div class="card-body">
+                            {{$detail->detail}}
                         </div>
-                        @endforeach
-                        @else
-                        <p class="alert alert-danger">No data found</p>
-                        @endif
                     </div>
-                    <!-- pagination -->
-                    {{$posts->links()}}
+
+                    <!-- Comment Section -->
+                    @auth
+                    <div class="card my-5">
+                        <h5 class="card-header">Add Comment</h5>
+                        <div class="card-body">
+                            <textarea class="form-control"></textarea>
+                            <input type="submit" class="btn btn-dark mt-2"/>
+                        </div>
+                    </div>
+                    @endauth
+
+                    <div class="card my-4">
+                        <h5 class="card-header">Comments <span class="badge badge-dark">{{count($detail->comments)}}</span></h5>
+                        <div class="card-body">
+                            @if($detail->comments)
+                                @foreach($detail->comments as $comment)
+                                    <blockquote class="blockquote">
+                                        <p class="mb-0">{{$comment->comment}}</p>
+                                        <footer class="blockquote-footer"><cite title="Source Title">User</cite></footer>
+                                    </blockquote>
+                                    <hr>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
                 </div>
-                
 
                 <div clas="col-md-3">
                     <!-- Search -->
@@ -61,5 +74,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-@endsection('content')      
+@endsection('content')  

@@ -23,7 +23,8 @@ use App\http\Controllers\SettingController;
 //     return view('welcome');
 // });
 
-Route::get('/',[HomeController::class,'home']);
+Route::get('/',[HomeController::class,'index']);
+Route::get('/detail/{id}',[HomeController::class,'detail']);
 
 Route::get('/admin/login',[AdminController::class,'login']);
 Route::post('/admin/login',[AdminController::class,'submit_login']);
@@ -42,3 +43,7 @@ Route::post('/admin/setting',[SettingController::class,'save_settings']);
 Route::get('/admin/user/{id}/delete',[UserController::class,'destroy']);
 Route::resource('admin/user','UserController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

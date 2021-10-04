@@ -38,7 +38,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Category
                             </a>
-                            <a class="nav-link" href="{{url('admin/user/')}}">
+                            <a class="nav-link" href="{{url('admin/post/')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
                                 Posts
                             </a>

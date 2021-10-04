@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.user.add');
+        // return view('backend.user.add');
     }
 
     /**
@@ -39,20 +39,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required',
-            'email' => 'required',
-            'vat_number' => 'max:13',
-            'password' => 'required|confirmed|min:6'
-        ]);
+        // $request->validate([
+        //     'name'=>'required',
+        //     'email' => 'required',
+        //     'vat_number' => 'max:13',
+        //     'password' => 'required|confirmed|min:6'
+        // ]);
 
-        $user=new User;
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=$request->password;
-        $user->save();
+        // $user=new User;
+        // $user->name=$request->name;
+        // $user->email=$request->email;
+        // $user->password=$request->password;
+        // $user->save();
 
-        return redirect('admin/user/create')->with('success','User Has been Created');
+        // return redirect('admin/user/create')->with('success','User Has been Created');
 
     }
 
@@ -75,8 +75,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data=User::find($id);
-        return view('backend.user.update',['data'=>$data]);
+        // $data=User::find($id);
+        // return view('backend.user.update',['data'=>$data]);
     }
 
     /**
@@ -88,20 +88,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name'=>'required',
-            'email' => 'required',
-            'vat_number' => 'max:13',
-            'password' => 'required|confirmed|min:6'
-        ]);
+        // $request->validate([
+        //     'name'=>'required',
+        //     'email' => 'required',
+        //     'vat_number' => 'max:13',
+        //     'password' => 'required|confirmed|min:6'
+        // ]);
 
-        $user=User::find($id);
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=$request->password;
-        $user->save();
+        // $user=User::find($id);
+        // $user->name=$request->name;
+        // $user->email=$request->email;
+        // $user->password=$request->password;
+        // $user->save();
 
-        return redirect('admin/user/'.$id.'/edit')->with('success','User Has been Updated');
+        // return redirect('admin/user/'.$id.'/edit')->with('success','User Has been Updated');
     }
 
     /**
