@@ -116,7 +116,7 @@ class PostController extends Controller
         $request->validate([
             'title'=>'required',
             'category'=>'required',
-            'detail'=>'required',
+            'detail'=>'required'
         ]);
 
         //Post Thumbnail

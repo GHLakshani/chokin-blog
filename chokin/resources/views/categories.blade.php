@@ -3,23 +3,23 @@
         <div class="row">
 			    <div class="col-md-8">
 				    <div class="row mb-5"> 
-                        @if(count($posts)>0)
-                        @foreach($posts as $post)
+                        @if(count($categories)>0)
+                        @foreach($categories as $category)
                         <div clas="col-md-4">
                             <div class="card">
-                            <a href="{{url('detail/'.$post->id)}}"><img  src="{{asset('images/thumb/'.$post->thumb_img)}}" class="img-thumbnail" alt="{{$post->title}}" style="width: 200px;height: 200px;"></a>
+                            <a href="{{url('category/'.$category->id)}}"><img  src="{{asset('images/'.$category->image)}}" class="img-thumbnail" alt="{{$category->title}}" style="width: 200px;height: 200px;"></a>
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="{{url('detail/'.$post->id)}}">{{$post->title}}</a></h5>
+                                    <h5 class="card-title"><a href="{{url('category/'.$category->id)}}">{{$category->title}}</a></h5>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                         @else
-                        <p class="alert alert-danger">No data found</p>
+                        <p class="alert alert-danger">No Category found</p>
                         @endif
                     </div>
                     <!-- pagination -->
-                    {{$posts->links()}}
+                    {{$categories->links()}}
                 </div>
                 
 

@@ -4,9 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial=scale=1.0">
         <title>Chokin</title>
-        <link href="{{asset('lib')}}/bs4/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="{{asset('lib')}}/js/jquery-3.6.0.min.js" type="text/javascript"></script>
-        <script src="{{asset('lib')}}/bs4/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{{asset('lib')}}/bs4/bootstrap.min.css" />
+        <!-- Jquery -->
+        <script type="text/javascript" src="{{asset('lib')}}/jquery-3.5.1.min.js"></script>
+        <!-- BS4 Js -->
+        <script type="text/javascript" src="{{asset('lib')}}/bs4/bootstrap.bundle.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     </head>
     <body>  
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,10 +23,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{url('/')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Category</a>
+                            <a class="nav-link" href="{{url('all-categories')}}">Category</a>
                         </li>
                         @guest
                             <li class="nav-item">
@@ -31,6 +36,9 @@
                                 <a class="nav-link" href="{{url('register')}}">Register</a>
                             </li>
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('save-post-form')}}">Posts</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{url('logout')}}">Logout</a>
                             </li>
@@ -45,5 +53,12 @@
         <main class="container mt-4">
             @yield('content')
         <main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{{asset('backend')}}/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="{{asset('backend')}}/assets/demo/chart-area-demo.js"></script>
+        <script src="{{asset('backend')}}/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{{asset('backend')}}/js/datatables-simple-demo.js"></script>
     </body>
 </html>

@@ -43,7 +43,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
                                 Posts
                             </a>
-                            <a class="nav-link" href="{{url('admin/user/')}}">
+                            <a class="nav-link" href="{{url('admin/comment/')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-comments"></i></div>
                                 Comments
                             </a>

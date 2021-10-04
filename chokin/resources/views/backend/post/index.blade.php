@@ -45,7 +45,7 @@
                                         <tr>
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->user_id}}</td>
-                                            <td>{{$post->cat_id}}</td>
+                                            <td>{{$post->category->title}}</td>
                                             <td>{{$post->title}}</td>
                                             <td><img src="{{asset('images/thumb').'/'.$post->thumb_img}}" width="80" /></td>
                                             <td><img src="{{asset('images/full').'/'.$post->full_img}}" width="80" /></td>

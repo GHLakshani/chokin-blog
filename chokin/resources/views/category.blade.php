@@ -1,6 +1,6 @@
 @extends('frontLayout')
 @section('content')
-        <div class="row">
+            <div class="row">
 			    <div class="col-md-8">
 				    <div class="row mb-5"> 
                         @if(count($posts)>0)
@@ -23,7 +23,7 @@
                 </div>
                 
 
-                <div clas="col-md-4">
+                <div clas="col-md-3">
                     <!-- Search -->
                     <div class="card mb-3 shadow">
                         <div class="card-header">Search</div>
@@ -63,5 +63,5 @@
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
 @endsection('content')      

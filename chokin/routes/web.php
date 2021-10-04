@@ -25,11 +25,23 @@ use App\http\Controllers\SettingController;
 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/detail/{id}',[HomeController::class,'detail']);
+Route::get('/all-categories',[HomeController::class,'all_category']);
+Route::get('/category/{id}',[HomeController::class,'category_posts']);
+Route::post('/save-comment/{id}',[HomeController::class,'save_comment']);
+Route::get('save-post-form',[HomeController::class,'save_post_form']);
+Route::post('save-post-form',[HomeController::class,'save_post_data']);
+Route::get('manage-posts',[HomeController::class,'manage_posts']);
+Route::get('update-posts/{id}',[HomeController::class,'edit_posts']);
+Route::post('update-posts/{id}',[HomeController::class,'update_posts']);
+Route::get('manage-posts/{id}',[HomeController::class,'destroy_posts']);
 
 Route::get('/admin/login',[AdminController::class,'login']);
 Route::post('/admin/login',[AdminController::class,'submit_login']);
 Route::get('/admin/logout',[AdminController::class,'logout']);
 Route::get('/admin/dashboard',[AdminController::class,'dashboard']);
+
+Route::get('/admin/comment',[AdminController::class,'comments']);
+Route::get('/admin/comment/{id}/delete',[AdminController::class,'delete_comment']);
 //category
 Route::get('/admin/category/{id}/delete',[CategoryController::class,'destroy']);
 Route::resource('admin/category','CategoryController');
